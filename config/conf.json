@@ -1,0 +1,5 @@
+{
+    "weather_api_key": "7df8fec201be047ac572892b7491ac70",
+    "weather_api_url": "https://api.openweathermap.org/data/2.5/weather",
+    "city": "Bayonne"
+}
