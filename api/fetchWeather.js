@@ -1,16 +1,13 @@
-const fetch = require('node-fetch');
-const config = require('../config/conf.json');
+export default async function fetchWeather() {
+    const config = await fetch ("../config/conf.json").then((res) => res.json());
 
-export default async function fetchWeather(city) {
-    const apiUrl = `${config.weather_api_url}?q=${config.city}&appid=${config.weather_api_key}`;
-
+    const apiUrl = `${config.weather_api_url}?lat=${config.lat}&lon=${config.lon}&appid=${config.weather_api_key}`;
+    
     try{
         const response = await fetch(apiUrl);
         const data = await response.json();
-        console.log(data);
         return data;
-
     } catch (error) {
-        console.log('Error fetching weather data', error);
+        console.error("Error fetching weather data", error);
     }
 }
